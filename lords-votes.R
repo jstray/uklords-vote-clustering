@@ -49,6 +49,7 @@ votedist <- function(v1, v2) {
 	dist
 	}
 
+newplot <- function() { quartz() } # Mac specific, see http://www.statmethods.net/graphs/creating.html 
 
 # create distance matrix
 d = dist(recentvotes, votedist)
@@ -59,7 +60,12 @@ fit <- cmdscale(d,eig=TRUE, k=2) # k is the number of dim
 x <- fit$points[,1]
 y <- fit$points[,2]
 
-# ]plot with colors corresponding to party
+# plot just the points
+newplot()
+plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", main="House of Lords voting",  pch=19)
+
+# now plot with colors corresponding to party
+newplot()
 parties = factor(row.names(recentvotes))
 plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", main="House of Lords voting", pch=19, col=parties)
 legend('topright', legend = levels(parties), col=palette(), cex = 0.8, pch = 1)

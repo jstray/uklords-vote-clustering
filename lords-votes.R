@@ -46,7 +46,7 @@ votedist <- function(v1, v2) {
 		dist = 1 
 	else 
 		dist = 1- (nummatch/numoverlap)
-		dist = 1- ((nummatch/numoverlap) * log(numoverlap)/log(Nvotes))
+		# dist = 1- ((nummatch/numoverlap) * log(numoverlap)/log(Nvotes))
 	dist
 	}
 

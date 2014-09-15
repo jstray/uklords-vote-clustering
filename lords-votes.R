@@ -21,6 +21,7 @@ votes <- array(0, dim(votes))
 votes[ayes] <- 1
 votes[nays] <- -1
 
+votescast = 
 # -------------------------------- Take recent votes ------------------------------
 
 # take only N most recent votes
@@ -44,8 +45,8 @@ votedist <- function(v1, v2) {
 	if (!numoverlap) 
 		dist = 1 
 	else 
-		#dist = 1- ((nummatch/numoverlap) * log(numoverlap)/log(Nvotes))
 		dist = 1- (nummatch/numoverlap)
+		dist = 1- ((nummatch/numoverlap) * log(numoverlap)/log(Nvotes))
 	dist
 	}
 
@@ -70,4 +71,5 @@ parties = factor(row.names(recentvotes))
 plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", main="House of Lords voting", pch=19, col=parties)
 legend('topright', legend = levels(parties), col=palette(), cex = 0.8, pch = 1)
 
-
+# Plot with a different color for those who vote at least half the time
+plot(x, y, xlab="Coordinate 1", ylab="Coordinate 2", main="House of Lords voting", pch=19, col=ifelse(numvotes>=50,"red","black"))

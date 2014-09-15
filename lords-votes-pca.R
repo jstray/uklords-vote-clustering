@@ -35,7 +35,7 @@ recentvotes = recentvotes[rowSums(abs(recentvotes)) != 0, ]
 # -------------------------------- Compute principal components, plot ------------------------------
 
 pc <- prcomp(recentvotes)
-plot(pc$x[,1], pc$x[,2])
+plot(pc$x[,1], pc$x[,2])	
 
 # now with party colors!
 colors = palette()
@@ -43,3 +43,4 @@ parties = factor(row.names(recentvotes))
 labels = levels(parties)
 plot(pc$x[,1], pc$x[,2], col=parties)
 legend('topright', legend = levels(parties), col=palette(), cex = 0.8, pch = 1)
+

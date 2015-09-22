@@ -63,7 +63,7 @@ d = dist(recentvotes, votedist)
 clusters = hclust(d, method="ward") 
 
 # pick, e.g. biggest five clusters
-groups = cutree(clusters, k=5) # cut tree into 5 clusters
+groups = cutree(clusters, k=10) # cut tree into 5 clusters
 #### <<< If you look at groups here... clustered, but boring >>>
 
 newplot()

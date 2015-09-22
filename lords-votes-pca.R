@@ -23,6 +23,7 @@ votes[nays] <- -1
 # show 3 dimensions (votes) at a time
 library(scatterplot3d)
 scatterplot3d(votes[,100], votes[,200], votes[,300])
+#scatterplot3d(jitter(votes[,100]), jitter(votes[,200]), jitter(votes[,300]))
 
 # -------------------------------- Take recent votes ------------------------------
 # take only N most recent votes, where at least one Lord voted
@@ -41,6 +42,6 @@ plot(pc$x[,1], pc$x[,2])
 colors = palette()
 parties = factor(row.names(recentvotes))
 labels = levels(parties)
-plot(pc$x[,1], pc$x[,2], col=parties)
-legend('topright', legend = levels(parties), col=palette(), cex = 0.8, pch = 1)
+plot(pc$x[,1], pc$x[,2], col=parties, pch=16, cex=2)
+legend('topright', legend = levels(parties), col=palette(), cex = 2, pch = 1)
 
